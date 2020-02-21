@@ -8,6 +8,9 @@ var width = canvas.width;
 var height = canvas.height;
 var dx = 2;
 var dy = -2;
+var paddleHeight = 10;
+var paddleWidth = 75;
+var paddleX = (canvas.width-paddleWidth)/2
 
 
 
@@ -28,6 +31,15 @@ ctx.fill();
 ctx.closePath();
 }
 
+function drawPaddle() {
+
+  ctx.beginPath();
+  ctx.rect(paddleX,height-paddleHeight,paddleWidth,paddleHeight);
+  ctx.fillStyle = "#0095DD";
+  ctx.fill();
+  ctx.closePath();
+}
+
 
 function hitDetection() {
     if(y+dy < 0 + ball_size || y+dy > height - ball_size ) {
@@ -45,8 +57,11 @@ function hitDetection() {
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ball("red");
+    drawPaddle();
     hitDetection();
 }
+
+
 
 // redraw the ball after 10 seconds 
 // you then the draw function as this calls the ball. 
