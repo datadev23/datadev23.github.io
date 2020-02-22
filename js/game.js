@@ -11,9 +11,45 @@ var dy = -2;
 var paddleHeight = 10;
 var paddleWidth = 75;
 var paddleX = (canvas.width-paddleWidth)/2
+var rightPressed = false;
+var leftPressed = false;
+
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
 
 
+document.addEventListener ('keydown', function (event){
+    console.log (event.which);
+}); 
 
+
+var evt = new KeyboardEvent('keydown', {'keyCode':37, 'which':37});
+document.dispatchEvent (evt);
+
+
+    function keyDownHandler(e) {
+
+      console.log("key down");
+    if(e.key == "Right" || e.key == evt) {
+        rightPressed = true;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft") {
+        leftPressed = true;
+    }
+}
+
+
+function keyUpHandler(e) {
+
+  if(e.key == "Right" || e.key == "ArrowRight") {
+        rightPressed = false;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft") {
+        leftPressed = false;
+    }
+
+
+}
 
 // set the ball radius. 
 ball_size = 10;
@@ -59,9 +95,19 @@ function draw() {
     ball("red");
     drawPaddle();
     hitDetection();
+
+
+    if(rightPressed) {
+
+      paddleX += 7;
+    }
+
+    if(leftPressed) {
+
+      paddleX -= 7;
+    }
+
 }
-
-
 
 // redraw the ball after 10 seconds 
 // you then the draw function as this calls the ball. 
