@@ -22,6 +22,27 @@ document.addEventListener ('keydown', function (event){
     console.log (event.which);
 }); 
 
+if (annyang) {
+
+  var commands = {
+
+    'hello': function() { alert('Hello world!');},
+
+    'right':  function() {rightKey();},
+
+  };
+
+  // Add a command
+
+  annyang.addCommands(commands);
+
+
+ // start listening for any voice input.
+
+ annyang.start();
+
+  }
+
 
 var evt = new KeyboardEvent('keydown', {'keyCode':37, 'which':37});
 document.dispatchEvent (evt);
@@ -107,7 +128,12 @@ function draw() {
       paddleX -= 7;
     }
 
+
+
+
 }
+
+
 
 // redraw the ball after 10 seconds 
 // you then the draw function as this calls the ball. 
