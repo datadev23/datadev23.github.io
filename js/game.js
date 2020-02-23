@@ -64,7 +64,7 @@ document.dispatchEvent (evt);
     function keyDownHandler(e) {
 
       console.log("key down");
-    if(e.key == "Right" || e.key == evt) {
+    if(e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = true;
     }
     else if(e.key == "Left" || e.key == "ArrowLeft") {
@@ -135,12 +135,21 @@ function draw() {
 
       paddleX += 7;
       rightPressed = false;
+
+      if(paddleX + paddleWidth > width) {
+        paddleX = width - paddleWidth;
+      }
     }
 
     if(leftPressed) {
 
       paddleX -= 7;
       leftPressed = false;
+
+      if (paddleX < 0) {
+       paddleX = 0;
+
+      }
     }
 
 
