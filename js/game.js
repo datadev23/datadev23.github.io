@@ -14,6 +14,7 @@ var paddleX = (canvas.width-paddleWidth)/2
 var rightPressed = false;
 var leftPressed = false;
 
+
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
@@ -30,6 +31,8 @@ if (annyang) {
 
     'right':  function() {rightKey();},
 
+    'left': function() {leftKey();},
+
   };
 
   // Add a command
@@ -41,6 +44,16 @@ if (annyang) {
 
  annyang.start();
 
+  }
+
+
+  function rightKey() {
+rightPressed = true;
+
+  }
+
+  function leftKey() {
+    leftPressed = true;
   }
 
 
@@ -121,11 +134,13 @@ function draw() {
     if(rightPressed) {
 
       paddleX += 7;
+      rightPressed = false;
     }
 
     if(leftPressed) {
 
       paddleX -= 7;
+      leftPressed = false;
     }
 
 
