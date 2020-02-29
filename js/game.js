@@ -104,6 +104,20 @@ function keyUpHandler(e) {
 
 }
 
+function gameOverScreen() {
+
+
+    else if (y + dy > height - ball_size) {
+
+      alert("GAME OVER");
+      document.location.reload();
+      clearInterval(interval);
+
+    }
+
+
+}
+
 function drawScore() {
 
   ctx.font = "16px Arial";
@@ -203,15 +217,7 @@ function hitDetection() {
 
     	dy = -dy;
     } 
-/*
-    else if (y + dy > height - ball_size) {
 
-      alert("GAME OVER");
-      document.location.reload();
-      clearInterval(interval);
-
-    }
-*/
     if(x+dx > width - ball_size || x+dx < 0 + ball_size ) {
     	dx = -dx;
     }
