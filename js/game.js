@@ -104,14 +104,31 @@ function keyUpHandler(e) {
 
 }
 
+
+
 function gameOverScreen() {
 
 
-    else if (y + dy > height - ball_size) {
+    if (y + dy > height - ball_size) {
 
-      alert("GAME OVER");
-      document.location.reload();
-      clearInterval(interval);
+   
+
+   // what happens when the ball hits the paddle
+   if(x > paddleX && x < paddleX + paddleWidth) {
+  
+  // reverse the direction
+  dy = -dy;
+   }
+   else {
+
+    alert("GAME OVER");
+        document.location.reload();
+        clearInterval(interval);
+   }
+
+
+
+      
 
     }
 
@@ -221,6 +238,10 @@ function hitDetection() {
     if(x+dx > width - ball_size || x+dx < 0 + ball_size ) {
     	dx = -dx;
     }
+
+    gameOverScreen();
+
+
      x += dx;
     y += dy;
 }
