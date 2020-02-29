@@ -39,6 +39,7 @@ document.addEventListener ('keydown', function (event){
     console.log (event.which);
 }); 
 
+function talkKey() {
 if (annyang) {
 
   var commands = {
@@ -61,7 +62,9 @@ if (annyang) {
  annyang.start();
 
   }
+}
 
+//talkKey();
 
   function rightKey() {
 rightPressed = true;
@@ -108,6 +111,8 @@ function drawScore() {
   ctx.fillText("Score: "+score, 8, 20);
 }
 
+
+
 function CollisionBrickDetection() {
 
   for(var c=0; c<brickColumnCount; c++) {
@@ -117,10 +122,19 @@ function CollisionBrickDetection() {
 
       if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
           console.log("brick detected");
-          score++;
+        
            dy = -dy;
 
           b.status = 0;
+            score++;
+            if(score == brickRowCount*brickColumnCount) {
+
+              alert("YOU WIN, CONGRATULATIONS");
+              document.location.reload();
+              clearInterval(interval);
+            }
+
+            console.log(brickRowCount*brickColumnCount);
       }
       else 
       {
