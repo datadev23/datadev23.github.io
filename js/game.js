@@ -36,7 +36,6 @@ document.addEventListener("keyup", keyUpHandler, false);
 
 
 document.addEventListener ('keydown', function (event){
-    console.log (event.which);
 }); 
 
 function talkKey() {
@@ -151,8 +150,6 @@ function CollisionBrickDetection() {
        if(b.status == 1) {
 
       if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
-          console.log("brick detected");
-        
            dy = -dy;
 
           b.status = 0;
@@ -164,11 +161,7 @@ function CollisionBrickDetection() {
               clearInterval(interval);
             }
 
-            console.log(brickRowCount*brickColumnCount);
-      }
-      else 
-      {
-        console.log("brick is missed");
+           
       }
     
 
