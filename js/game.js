@@ -67,13 +67,10 @@ talkKey();
 
   function rightKey() {
 rightPressed = true;
-console.log("right");
-
   }
 
   function leftKey() {
     leftPressed = true;
-    console.log("left");
   }
 
 
