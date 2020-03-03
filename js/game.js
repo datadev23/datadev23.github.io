@@ -63,15 +63,17 @@ if (annyang) {
   }
 }
 
-//talkKey();
+talkKey();
 
   function rightKey() {
 rightPressed = true;
+console.log("right");
 
   }
 
   function leftKey() {
     leftPressed = true;
+    console.log("left");
   }
 
 
@@ -81,7 +83,6 @@ document.dispatchEvent (evt);
 
     function keyDownHandler(e) {
 
-      console.log("key down");
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = true;
     }
@@ -203,7 +204,6 @@ for(var c=0; c<brickColumnCount; c++) {
   for(var r=0; r<brickRowCount; r++) {
     // only show blocks if status 1 is displayed 
     if(bricks[c][r].status == 1) {
-    console.log(bricks[c][r].status);
   var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
   var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
 bricks[c][r].x = brickX;
@@ -249,7 +249,7 @@ function draw() {
  
     if(rightPressed) {
 
-      paddleX += 7;
+      paddleX += 50;
       rightPressed = false;
 
       if(paddleX + paddleWidth > width) {
@@ -259,7 +259,7 @@ function draw() {
 
     if(leftPressed) {
 
-      paddleX -= 7;
+      paddleX -= 50;
       leftPressed = false;
 
       if (paddleX < 0) {
