@@ -141,7 +141,7 @@ function drawScore() {
   ctx.fillStyle = "#0095DD";
   ctx.fillText("Score: "+score, 8, 20);
 
-
+}
 
 function CollisionBrickDetection() {
 
