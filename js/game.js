@@ -38,7 +38,7 @@ document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener ('keydown', function (event){
 }); 
 
-function talkKey() {
+talkKey = () => {
 if (annyang) {
 
   var commands = {
@@ -103,7 +103,7 @@ function keyUpHandler(e) {
 
 
 
-function gameOverScreen() {
+gameOverScreen = () => {
 
 
     if (y + dy > height - ball_size) {
@@ -132,7 +132,8 @@ function gameOverScreen() {
 
 }
 
-function drawScore() {
+drawScore = () =>  {
+
 
   ctx.font = "16px Arial";
   ctx.fillStyle = "#0095DD";
@@ -140,7 +141,16 @@ function drawScore() {
 
 }
 
-function CollisionBrickDetection() {
+/*
+function drawScore() {
+
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Score: "+score, 8, 20);
+
+}
+*/
+CollisionBrickDetection = function() {
 
   for(var c=0; c<brickColumnCount; c++) {
     for(var r=0; r<brickRowCount; r++) {
@@ -179,7 +189,7 @@ var ball_data= {
   ballColor: "green",
 };
 
-function ball(ball_color) {
+ball = (ball_color) => {
 ctx.beginPath();
 ctx.arc(x, y, ball_size, 0, Math.PI*2);
 ctx.fillStyle = ball_color;
@@ -187,7 +197,7 @@ ctx.fill();
 ctx.closePath();
 }
 
-function drawPaddle() {
+ drawPaddle = () => {
 
   ctx.beginPath();
   ctx.rect(paddleX,height-paddleHeight,paddleWidth,paddleHeight);
@@ -196,7 +206,7 @@ function drawPaddle() {
   ctx.closePath();
 }
 
-function drawBlocks() {
+drawBlocks = () => {
 for(var c=0; c<brickColumnCount; c++) {
   for(var r=0; r<brickRowCount; r++) {
     // only show blocks if status 1 is displayed 
@@ -218,7 +228,7 @@ ctx.closePath();
 
 
 
-function hitDetection() {
+ hitDetection = () => {
     if(y+dy < 0 + ball_size) {
 
     	dy = -dy;
